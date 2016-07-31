@@ -1,9 +1,8 @@
 //
 //  DatePicker.swift
-//  Motto
 //
 //  Created by Kenan Karakecili on 26/04/16.
-//  Copyright © 2016 Magis Technology. All rights reserved.
+//  Copyright © 2016 Kenan Karakecili. All rights reserved.
 //
 
 import UIKit
