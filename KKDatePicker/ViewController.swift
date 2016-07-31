@@ -10,16 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var dateField: UITextField!
+  
+  let datePicker = KKDatePicker()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    datePicker.delegate = self
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
 
 }
 
+extension ViewController: UITextFieldDelegate {
+  
+  func textFieldDidBeginEditing(textField: UITextField) {
+    if textField === dateField {
+      datePicker.setup(textField,
+                       minDate: NSDate(),
+                       maxDate: nil,
+                       mode: .DateAndTime)
+    }
+  }
+  
+}
+
+extension ViewController: KKDatePickerDelegate {
+  
+  func datePickerDidSelectAction(date: String) {
+    if datePicker.field === dateField {
+      dateField.text = date
+    }
+  }
+  
+}
